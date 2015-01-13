@@ -89,8 +89,10 @@
 //                 - 4 relais out, 4 tracers inputs
 //                 see: www.opendcc.de and www.tams-online.de
 
+#define ARDUINDOPROMINI 4
+#define CSMD 5
 
-#define TARGET_HARDWARE     OPENDECODER2
+#define TARGET_HARDWARE     CSMD
 
 
 #define FALSE  0

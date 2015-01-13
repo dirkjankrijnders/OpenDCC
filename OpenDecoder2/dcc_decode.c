@@ -141,6 +141,15 @@ unsigned char service_mode_state;   // bit field
 signed char last_sm_mode_received;  // timer variable to create a update grid;
 
 
+void activate_ACK(unsigned char time)
+{
+	unsigned char i;
+	// set ACK for  time [ms]
+	DCC_ACK_ON;
+	for (i=0; i<time; i++) _mydelay_us(1000);
+	DCC_ACK_OFF;
+}
+
 //==============================================================================
 //
 // Host Interface (Protocol Layer)

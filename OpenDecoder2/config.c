@@ -48,10 +48,10 @@
 #include "config.h"
 #include "hardware.h"
 #include "dcc_receiver.h"
-#include "port_engine.h"
+//#include "port_engine.h"
 // #include "servo.h"
 
-#include "main.h"
+//#include "main.h"
 
 #define SIMULATION  0            // 0: real application
                                  // 1: test receive routine
@@ -86,7 +86,7 @@ volatile unsigned char Communicate = 0; // Communicationregister (for semaphors)
 
 
 
-#if (SERVO_ENABLED == TRUE)
+/*#if (SERVO_ENABLED == TRUE)
     const unsigned char compilat[] PROGMEM = {".... SERVO ..."};
       #warning Info: SERVO-Software included
     #if (SEGMENT_ENABLED == TRUE)
@@ -105,13 +105,10 @@ volatile unsigned char Communicate = 0; // Communicationregister (for semaphors)
       const unsigned char compilat4[] PROGMEM = {"..+ RGB ..."};
       #warning Info: RGB-Software included
 #endif
-
+*/
     t_cv_record CV EEMEM =
       {
         #include "cv_data_servo.h"
-        #if (RGB_ENABLED == TRUE)
-            #include "cv_data_rgb.h"
-        #endif
       };
 
     unsigned char EE_servo_curve1[48] EEMEM;  // these are pairs of time/positions - see servo.c
@@ -122,12 +119,8 @@ volatile unsigned char Communicate = 0; // Communicationregister (for semaphors)
     const t_cv_record CV_PRESET PROGMEM =
       {
         #include "cv_data_servo.h"
-        #if (RGB_ENABLED == TRUE)
-            #include "cv_data_rgb.h"
-        #endif
-
       };
-
+/*
 #elif (DMX_ENABLED == TRUE)
    const unsigned char compilat[] PROGMEM = {".... DMX ...."};
 
@@ -169,7 +162,7 @@ volatile unsigned char Communicate = 0; // Communicationregister (for semaphors)
 
 
 #endif // SERVO_ENABLED
-
+*/
 
 /*
 
